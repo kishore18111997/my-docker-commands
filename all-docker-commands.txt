@@ -1,0 +1,93 @@
+1)search imagename
+
+2)docker pull imagename
+
+3)docker images
+
+4)docker ps
+
+5)docker ps -a
+
+6)docker run -d -p 8080:8080 image 
+
+7)docker run -it --name kishore -p 8080:8080 image
+
+8)exit
+
+9)cntrl+p or cntrl+q
+
+10)docker rmi imageID
+
+11) docker rmi -f imageID
+
+12)docker rm  containerID
+
+13)docker rm -f containerID
+
+14)docker attach containerID
+
+15)docker start containerID
+
+16)docker stop containerID
+
+17)docker exec -it imageID /bin//bash    - to login to a container that is running in detached mode
+
+18)docker diff containerID       - to check the changes made to the container
+
+19)docker commit containerID myimage     - to create a new image from a running container
+
+20)docker port containerID       -  to check in which port the container is running
+
+21)docker tag containerID dockerhubusername/repositoryname     - to tag a name to a image
+
+22)docker push taggedname
+
+23)docker volume ls
+
+24)docker run -it -v /path/path image
+
+25)docker inspect     - to have a detailed list of all information of a container
+
+26)docker build -t dockerhubusername/repositoryname .        (dont forget the dot in the end)
+
+_________________________________________________________________________________________________________________________________________
+DOCKER SWARM COMMANDS
+
+27) docker swarm init --advertise addr privateIPofmaster  - this produces a token in master, copy and paste this token in all node machines to make it as slaves
+
+28) docker swarm join-token worker                 - to see the worker node token again
+
+29) docker swarm join-token master                  - to see the master node token, if you paste this command in any machine then that machine also becomes master
+
+30) docker swarm node ls                 - to show list of all worker nodes 
+
+31) docker service create --name "kishore" -p 8080:8080 imagename:tag                 - to create a service(container) 
+
+32) docker service ls                          - to check all running containers
+
+33) docker service ps serviceID                       - to check where the respective container is running
+
+34) docker node update --availability drain nodeIP                    - to make a node inactive(usually done to master because we wont run any nodes in master)
+
+35) docker node update --availability active nodeIP                    - to make a node active again
+
+36) docker sevice rm serviceID                                   - to delete a service
+
+37) docker service create --name kishore --replicas=3 -p 8080:8080 image name:tag         - to create a service in replicas or to create it in high avavilabilty
+
+38) docker service scale serviceID=10                                       - to scale a service to run in 5 contaiers
+
+39) docker swarm leave                          - type this command in any node machine which you want to delete it from the swarm
+
+
+
+
+
+
+
+
+
+
+
+
+.
