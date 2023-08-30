@@ -79,9 +79,16 @@ DOCKER SWARM COMMANDS
 
 39) docker swarm leave                          - type this command in any node machine which you want to delete it from the swarm
 
+___________________________________________________________________________________________________________________________________________________________________
 
+40) docker log containerID
+- to check all the logs of a container
 
+41) docker scout cves ubuntu:latest				previously this command was called [docker scan]
+- to check the vulnerabilities of the image called ubuntu:latest
 
+42) docker prune 
+- to delete all useless volumes and duplicate images
 
 
 
