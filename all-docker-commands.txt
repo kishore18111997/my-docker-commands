@@ -5,81 +5,119 @@
 - to download a image from dockerhub
 
 3)docker images
+- to list out all the images 
 
 4)docker ps
+- to list out all the containers(only running containers)
 
 5)docker ps -a
+- to list out all the containers
 
-6)docker run -d -p 8080:8080 image 
+6)docker run -d -p 8080:9090 image
+- to start a image in detached mode(runs in background) and also port the container to port 8080 in the local   
 
-7)docker run -it --name kishore -p 8080:8080 image
+7)docker run -it --name kishore -p 8080:8080 image /bin/bash
+- to start a image in INTERMEDIATE TERMINAL mode(starts the container and logs into it) and also port the container to port 8080 in the local
 
 8)exit
+- to stop and exit from a running container that you are already inside
 
 9)cntrl+p or cntrl+q
+- to exit from the container you were inside without stopping it
+
+9.1) exit -c
+- to exit from the container you were inside without stopping it
 
 10)docker rmi imageID
+- to delete a docker image
 
 11) docker rmi -f imageID
+- to forcefully delete a docker image
 
 12)docker rm  containerID
+- to delete a container
 
 13)docker rm -f containerID
+- to forcefully delete a container
 
 14)docker attach containerID
 
 15)docker start containerID
+- to start a container that was stopped
 
 16)docker stop containerID
+- to stop a container that was started
 
-17)docker exec -it imageID /bin//bash    - to login to a container that is running in detached mode
+17)docker exec -it imageID /bin/bash    
+- to login to a container that is running in detached mode
 
-18)docker diff containerID       - to check the changes made to the container
+18)docker diff containerID       
+- to check the changes made to the container
 
-19)docker commit containerID myimage     - to create a new image from a running container
+19)docker commit containerID myimage     
+- to create a new image from a running container
 
-20)docker port containerID       -  to check in which port the container is running
+20)docker port containerID       
+-  to check in which port the container is running
 
-21)docker tag containerID dockerhubusername/repositoryname     - to tag a name to a image
+21)docker tag containerID dockerhubusername/repositoryname     
+- to tag a name to a image
 
 22)docker push taggedname
+- to push the image to dockerhub
 
 23)docker volume ls
+- to list out all the volumes
 
 24)docker run -it -v /path/path image
+- to start a image and set a volume path called /path/path to it
 
-25)docker inspect     - to have a detailed list of all information of a container
+25)docker inspect     
+- to have a detailed list of all information of a container
 
 26)docker build -t dockerhubusername/repositoryname .        (dont forget the dot in the end)
 
 _________________________________________________________________________________________________________________________________________
 DOCKER SWARM COMMANDS
 
-27) docker swarm init --advertise addr privateIPofmaster  - this produces a token in master, copy and paste this token in all node machines to make it as slaves
+27) docker swarm init --advertise addr privateIPofmaster  
+- this produces a token in master, copy and paste this token in all node machines to make it as slaves
 
-28) docker swarm join-token worker                 - to see the worker node token again
+28) docker swarm join-token worker                 
+- to see the worker node token again
 
-29) docker swarm join-token master                  - to see the master node token, if you paste this command in any machine then that machine also becomes master
+29) docker swarm join-token master                  
+- to see the master node token, if you paste this command in any machine then that machine also becomes master
 
-30) docker swarm node ls                 - to show list of all worker nodes 
+30) docker swarm node ls                 
+- to show list of all worker nodes 
 
-31) docker service create --name "kishore" -p 8080:8080 imagename:tag                 - to create a service(container) 
+31) docker service create --name "kishore" -p 8080:8080 imagename:tag                 
+- to create a service(container) 
 
-32) docker service ls                          - to check all running containers
+32) docker service ls                          
+- to check all running containers
 
-33) docker service ps serviceID                       - to check where the respective container is running
+33) docker service ps serviceID                       
+- to check where the respective container is running
 
-34) docker node update --availability drain nodeIP                    - to make a node inactive(usually done to master because we wont run any nodes in master)
+34) docker node update --availability drain nodeIP                    
+- to make a node inactive(usually done to master because we wont run any nodes in master)
 
-35) docker node update --availability active nodeIP                    - to make a node active again
+35) docker node update --availability active nodeIP                    
+- to make a node active again
 
-36) docker sevice rm serviceID                                   - to delete a service
+36) docker sevice rm serviceID                                   
+- to delete a service
 
-37) docker service create --name kishore --replicas=3 -p 8080:8080 image name:tag         - to create a service in replicas or to create it in high avavilabilty
+37) docker service create --name kishore --replicas=3 -p 8080:8080 image name:tag         
+- to create a service in replicas or to create it in high avavilabilty
 
-38) docker service scale serviceID=10                                       - to scale a service to run in 5 contaiers
+38) docker service scale serviceID=10                                       
+- to scale a service to run in 5 contaiers
 
-39) docker swarm leave                          - type this command in any node machine which you want to delete it from the swarm
+39) docker swarm leave                          
+- type this command in any node machine which you want to delete it from the swarm
 
 ___________________________________________________________________________________________________________________________________________________________________
 
