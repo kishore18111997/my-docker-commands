@@ -1,6 +1,8 @@
 1)search imagename
+- to search if a image is present in a public repository
 
 2)docker pull imagename
+- to download a image from dockerhub
 
 3)docker images
 
